@@ -4,7 +4,25 @@ from shiny import App, ui
 
 # interface do usuário
 app_ui = ui.page_navbar(
-    ui.nav_panel("Página 1", "Conteúdo da Pagina 1"),
+    ui.nav_panel(
+        "Página 1",
+        ui.layout_sidebar(
+            ui.sidebar(
+                ui.markdown(
+                    """
+                    Uma frase com **negrito** e *itálico*, além de um [Link](https://analisemacro.com.br/).
+                    - Item 1
+                    - Item 2
+                    - Item 3
+
+                    ![](https://aluno.analisemacro.com.br/wp-content/uploads/dlm_uploads/2023/05/logo_am_45.png)                    
+                    """
+            ),
+            bg = "#d3d3d3"
+        ),
+        "Painel Principal"  
+    )
+    ),
     ui.nav_panel("Página 2", "Conteúdo da Página 2"),
     ui.nav_control(ui.a("Análise Macro", href = "https://analisemacro.com.br/")),
     ui.nav_menu(
